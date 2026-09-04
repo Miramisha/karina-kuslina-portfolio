@@ -128,7 +128,7 @@
     }).observe(scene);
   }
   document.addEventListener('visibilitychange', () => {
-    document.body.classList.toggle('motion-offscreen', document.hidden);
+    document.body.classList.toggle('motion-hidden', document.hidden);
   });
   sync();
 })();
