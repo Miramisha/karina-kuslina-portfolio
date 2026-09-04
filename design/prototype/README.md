@@ -1,27 +1,17 @@
-# Browser design prototype
+# Portfolio source
 
-A local, dependency-free prototype of Karina Kuslina's resume website. This is the reviewable design for stage 2; it has not been publicly deployed.
+Source of the published portfolio: https://karina-kuslina.pages.dev/ .
 
-Open `index.html` directly in a browser, or serve this directory:
+Run from the repository root:
 
 ```sh
-python3 -m http.server 8765 --bind 127.0.0.1
+python3 -m http.server 8765 --bind 127.0.0.1 --directory design/prototype
 ```
 
-Then open http://127.0.0.1:8765/.
+- `index.html`: content, navigation and contact links.
+- `styles.css`: responsive graphite and amber theme.
+- `prototype.js`: scroll reveals, portrait motion, Canvas trails and request-flow demonstration.
+- `assets/`: portrait and monogram variants; the live site uses `kk-03.svg`.
+- `logo-options.html`: design comparison excluded from the public build.
 
-## Files
-
-- `index.html`: semantic content, projects, navigation and contact links.
-- `styles.css`: graphite/amber theme, responsive layout and interaction states.
-- `prototype.js`: request animation, section reveals and reading progress.
-
-No package installation, API keys, external requests, analytics or paid services are required. Project and contact links navigate to their respective destinations when clicked. The system diagram is illustrative and does not send real requests. Typography uses Inter when locally available, then Helvetica Neue or Arial.
-
-## Motion
-
-The request animation runs once when visible and can be replayed. It highlights the interface, API and data nodes in sequence over 1.8 seconds. Scroll reveals run once per section. `prefers-reduced-motion` disables decorative movement; content remains visible without JavaScript. Hover effects have keyboard focus equivalents.
-
-## Review scope
-
-Review the visual direction, content hierarchy, project descriptions, responsive layout and motion. Production packaging, final accessibility/performance checks, domain and hosting remain separate stages requiring approval.
+Build with `python3 scripts/build.py`. No npm packages are required. Content remains in HTML; animation is progressive enhancement. Scroll reveals repeat on re-entry. Decorative motion respects the reduced-motion preference.

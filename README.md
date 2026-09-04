@@ -1,22 +1,85 @@
-# Karina Kuslina — Resume Website
+<p align="center">
+  <img src="design/prototype/assets/logos/kk-03.svg" width="88" alt="Монограмма КК">
+</p>
 
-A personal portfolio focused on fullstack development, professional projects, and carefully designed motion.
+<h1 align="center">Карина Куслина · Portfolio</h1>
 
-## Architecture
+<p align="center">Сайт-резюме fullstack-разработчика: проекты, технологии и внимание к деталям интерфейса.</p>
 
-Plain HTML, CSS and JavaScript; no framework, database or runtime dependencies. The approved site source lives in `design/prototype/`.
+<p align="center"><a href="https://karina-kuslina.pages.dev/">Открыть сайт ↗</a></p>
 
-Build the public output with `python3 scripts/build.py`. The script validates local resources and section links and copies only the production files to `dist/`. Design comparisons and planning documents stay out of the deployment.
+## О проекте
 
-## Status
+Одностраничное портфолио, которое помогает познакомиться с моими работами, посмотреть исходный код проектов и связаться со мной. Графитовая палитра, янтарные акценты и анимация объединяют профессиональную информацию в цельный интерфейс.
 
-- Visual design and motion approved by the owner.
-- Responsive checks completed at 320px and 1440px.
-- Static output deployed publicly to Cloudflare Pages using Direct Upload.
-- Public URL: https://karina-kuslina.pages.dev . An optional custom domain remains a separate stage.
+Сайт сохраняет простую архитектуру: HTML, CSS и JavaScript без фреймворков и зависимостей для браузера. Для размещения не нужны отдельный backend и база данных.
 
-See `docs/launch-readiness.ru.md` for checks and update instructions.
+## Возможности
 
-## Workflow
+- Адаптивные разделы с проектами, стеком, образованием и контактами.
+- Портрет с анимированными орбитами и реакцией на движение курсора.
+- Кометы на Canvas, положение которых связано с прокруткой страницы.
+- Повторяемое плавное появление содержимого при входе в область видимости.
+- Интерактивная схема «Интерфейс → API → Данные» с повторным запуском.
+- Кнопка паузы декоративного движения и поддержка `prefers-reduced-motion`.
+- Семантическая разметка, переход к основному содержимому и видимый фокус при навигации с клавиатуры.
 
-Each stage requires the owner's approval. Completed stages are committed with English messages without AI attribution. GitHub remains the source history; publishing an updated build to Cloudflare Pages is a separate operation.
+Основной текст доступен и при отключённом JavaScript. Схема взаимодействия компонентов — визуальная демонстрация, а не запрос к серверу.
+
+## Технологии
+
+| Область | Решение |
+| --- | --- |
+| Разметка | HTML5 |
+| Интерфейс | CSS Grid, Flexbox, медиазапросы, CSS-переменные |
+| Анимация | JavaScript, Web Animations API, IntersectionObserver, Canvas 2D |
+| Графика | SVG-монограмма, фотография |
+| Сборка | Python 3, стандартная библиотека |
+| Публикация | Cloudflare Pages · Direct Upload |
+
+Python используется только для подготовки файлов к публикации. В браузере сайт работает на HTML, CSS и JavaScript.
+
+## Запуск локально
+
+Склонируйте репозиторий и запустите локальный сервер из его корня:
+
+```sh
+git clone https://github.com/Miramisha/karina-kuslina-portfolio.git
+cd karina-kuslina-portfolio
+python3 -m http.server 8765 --bind 127.0.0.1 --directory design/prototype
+```
+
+Откройте [localhost:8765](http://127.0.0.1:8765/). Установка npm-пакетов не требуется.
+
+## Сборка и публикация
+
+```sh
+python3 scripts/build.py
+```
+
+Скрипт проверяет локальные ресурсы, ссылки на разделы и уникальность HTML-идентификаторов. В `dist/` попадают только файлы сайта: страница, стили, JavaScript, портрет и выбранный логотип. Документы и варианты дизайна исключены.
+
+Для обновления загрузите содержимое `dist/` в существующий проект Cloudflare Pages. При использовании ZIP файл `index.html` должен находиться в корне архива. Автоматическая публикация из GitHub пока не подключена.
+
+## Структура
+
+```text
+design/
+  prototype/
+    index.html          # Содержимое и структура страницы
+    styles.css          # Оформление и адаптивная вёрстка
+    prototype.js        # Интерактивность и анимации
+    assets/             # Портрет и SVG-логотипы
+    logo-options.html   # Сравнение вариантов монограммы
+  tokens.json           # Дизайн-токены
+docs/                   # Заметки о дизайне и публикации
+scripts/build.py        # Подготовка статической сборки
+```
+
+## Проверки
+
+Проверены ширины 320 и 1440 px: горизонтальная прокрутка отсутствует. После публикации главная страница и все ресурсы доступны без авторизации. Проверены ссылки на проекты GitHub и Telegram. Эти проверки не заменяют полный аудит доступности или производительности.
+
+## Контакты
+
+[GitHub](https://github.com/Miramisha) · [Telegram](https://t.me/Fox_TVViX) · [Email](mailto:karina.kuslina.04@bk.ru)
