@@ -1537,16 +1537,11 @@ h2 {
   display:block;
 }
 .portrait-frame figcaption {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  text-align:center;
+  text-wrap:balance;
   padding:20px 16px 10px;
   color:var(--text);
   font-size:15px;
-}
-.portrait-frame figcaption>span:last-child {
-  color:var(--accent);
-  font-size:26px;
 }
 .portrait-orbit {
   position:absolute;
@@ -1918,7 +1913,6 @@ move only their satellites. */
   animation-duration:36s;
 }
 .portrait-frame figcaption {
-  gap:12px;
   line-height:1.5;
 }
 @keyframes orbit-travel {
