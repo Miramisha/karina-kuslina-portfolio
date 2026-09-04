@@ -3,8 +3,15 @@
   "url": "https://www.figma.com/design/HoEsiN1E9O3dgsCdKOIbZS",
   "stage": "Figma design",
   "status": "incomplete_tool_quota_reached",
-  "pages": { "desktop": "0:1", "mobile": "2:4", "system": "2:5" },
-  "collections": { "primitives": "VariableCollectionId:2:6", "semantic": "VariableCollectionId:2:7" },
+  "pages": {
+    "desktop": "0:1",
+    "mobile": "2:4",
+    "system": "2:5"
+  },
+  "collections": {
+    "primitives": "VariableCollectionId:2:6",
+    "semantic": "VariableCollectionId:2:7"
+  },
   "nodes": {
     "foundations": "3:11",
     "buttonSet": "3:23",
@@ -48,5 +55,10 @@
     "Create request-motion demonstration and card interaction states",
     "Remove all section placeholders after populating them",
     "Verify final layouts, typography, contrast and interactions"
-  ]
+  ],
+  "continuation": {
+    "approvedFormat": "local-browser-prototype",
+    "path": "design/prototype/index.html",
+    "status": "prepared-for-review"
+  }
 }
