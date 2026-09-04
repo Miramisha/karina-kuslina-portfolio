@@ -39,26 +39,33 @@
   }
   replay.addEventListener('click', playRequest);
   const animations = new Set();
+  const activeReveals = new WeakMap();
   function reveal(element, delay = 0) {
-    if (motion.matches || !element.animate) return;
+    if (motion.matches || document.body.classList.contains('motion-paused') || !element.animate) return;
+    activeReveals.get(element)?.cancel();
     const animation = element.animate([
-      {opacity: 0, transform: 'translateY(22px)'},
+      {opacity: 0, transform: 'translateY(52px)'},
       {opacity: 1, transform: 'translateY(0)'}
-    ], {duration: 650, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards'});
+    ], {duration: 1000, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards'});
     animations.add(animation);
+    activeReveals.set(element, animation);
     animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
   }
   document.querySelectorAll('.hero-copy .entrance').forEach((element, index) => reveal(element, index * 65));
   reveal(card, 180);
   if ('IntersectionObserver' in window) {
+    const revealed = new WeakSet();
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (!entry.isIntersecting) {
+          revealed.delete(entry.target);
+          activeReveals.get(entry.target)?.cancel();
+        } else if (entry.intersectionRatio >= 0.12 && !revealed.has(entry.target)) {
+          revealed.add(entry.target);
           reveal(entry.target);
-          observer.unobserve(entry.target);
         }
       });
-    }, {threshold: 0.08});
+    }, {threshold: [0, 0.12], rootMargin: '0px 0px -40px 0px'});
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
     const demoObserver = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
