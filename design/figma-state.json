@@ -1,0 +1,52 @@
+{
+  "fileKey": "HoEsiN1E9O3dgsCdKOIbZS",
+  "url": "https://www.figma.com/design/HoEsiN1E9O3dgsCdKOIbZS",
+  "stage": "Figma design",
+  "status": "incomplete_tool_quota_reached",
+  "pages": { "desktop": "0:1", "mobile": "2:4", "system": "2:5" },
+  "collections": { "primitives": "VariableCollectionId:2:6", "semantic": "VariableCollectionId:2:7" },
+  "nodes": {
+    "foundations": "3:11",
+    "buttonSet": "3:23",
+    "buttonDefault": "3:17",
+    "buttonHover": "3:19",
+    "buttonFocus": "3:21",
+    "projectCard": "3:25",
+    "desktopRoot": "3:32",
+    "desktopNavigation": "3:33",
+    "desktopHero": "3:34",
+    "desktopProjects": "3:35",
+    "desktopMoreProjects": "3:36",
+    "desktopSkills": "3:37",
+    "desktopAbout": "3:38",
+    "desktopContact": "3:39",
+    "mobileRoot": "3:40",
+    "mobileNavigation": "3:41",
+    "mobileHero": "3:42",
+    "mobileProjects": "3:43",
+    "mobileMoreProjects": "3:44",
+    "mobileSkills": "3:45",
+    "mobileAbout": "3:46",
+    "mobileContact": "3:47",
+    "desktopIntroduction": "3:58",
+    "desktopDiagram": "3:59"
+  },
+  "completed": [
+    "Approved dark palette and semantic bindings",
+    "Spacing, radii and eight text styles",
+    "Foundations board with visual check",
+    "Button with editable label, default/hover/focus variants and hover reaction",
+    "Project card with six editable content properties and visual check",
+    "Desktop and mobile layout skeletons",
+    "Desktop navigation with scroll reactions"
+  ],
+  "remaining": [
+    "Populate desktop introduction and request diagram",
+    "Populate all desktop content sections",
+    "Populate all mobile content sections",
+    "Complete project links and navigation prototype",
+    "Create request-motion demonstration and card interaction states",
+    "Remove all section placeholders after populating them",
+    "Verify final layouts, typography, contrast and interactions"
+  ]
+}
