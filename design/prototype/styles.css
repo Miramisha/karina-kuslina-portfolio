@@ -70,3 +70,7 @@ body.motion-paused .ambient-background *,body.motion-hidden .ambient-background 
 .orbit-two{inset:28px 20px 12px;border-color:#ffb45426}
 @media(max-width:1100px){.portrait-scene{padding:44px 46px 78px}}
 @media(max-width:520px){.portrait-scene{padding:40px 38px 72px}}
+
+/* Selected custom orbit monogram. */
+.monogram-logo{display:block;width:52px;height:48px;object-fit:contain;flex-shrink:0}
+@media(max-width:520px){.monogram-logo{width:44px;height:40px}}
