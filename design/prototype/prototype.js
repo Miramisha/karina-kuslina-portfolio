@@ -132,3 +132,47 @@
   });
   sync();
 })();
+
+// Each location is a pure function of scroll progress, so scrolling up reverses travel.
+(() => {
+  const comets = [...document.querySelectorAll('[data-comet]')];
+  if (!comets.length) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const paths = [
+    {start: 0, end: 0.39, side: 'left', offset: 0},
+    {start: 0.23, end: 0.73, side: 'right', offset: 30},
+    {start: 0.61, end: 1, side: 'left', offset: 16}
+  ];
+  let frame = 0;
+  function draw() {
+    frame = 0;
+    if (reduced.matches || document.body.classList.contains('motion-paused')) {
+      comets.forEach(comet => { comet.style.opacity = '0'; });
+      return;
+    }
+    const width = innerWidth;
+    const height = innerHeight;
+    const maxScroll = document.documentElement.scrollHeight - height;
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, scrollY / maxScroll)) : 0;
+    const margin = Math.max(10, (width - Math.min(1200, width - (width <= 520 ? 40 : width <= 1100 ? 64 : 96))) / 2);
+    comets.forEach((comet, index) => {
+      const path = paths[index];
+      const local = (progress - path.start) / (path.end - path.start);
+      const t = Math.min(1, Math.max(0, local));
+      const lane = Math.max(8, margin * 0.48);
+      const drift = Math.min(18, margin * 0.22) * t;
+      const x = path.side === 'left' ? lane + drift : width - lane - drift;
+      const y = -170 + t * (height + 300) + path.offset;
+      const angle = path.side === 'left' ? -12 : 12;
+      const fade = Math.min(1, t / 0.09, (1 - t) / 0.1);
+      comet.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) rotate(${angle}deg)`;
+      comet.style.opacity = local > 0 && local < 1 ? String(Math.max(0, fade) * 0.72) : '0';
+    });
+  }
+  function schedule() { if (!frame) frame = requestAnimationFrame(draw); }
+  addEventListener('scroll', schedule, {passive: true});
+  addEventListener('resize', schedule);
+  reduced.addEventListener('change', schedule);
+  new MutationObserver(schedule).observe(document.body, {attributes: true, attributeFilter: ['class']});
+  draw();
+})();

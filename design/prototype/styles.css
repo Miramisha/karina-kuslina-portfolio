@@ -50,3 +50,10 @@ body{isolation:isolate}
 body.motion-paused .ambient-background *,body.motion-hidden .ambient-background *,body.motion-hidden .portrait-scene *,body.motion-hidden .portrait-scene *:before{animation-play-state:paused!important}
 @media(max-width:520px){.ambient-glow{width:400px;height:400px}.glow-a{left:-300px}.glow-b{right:-300px}.dot-c,.dot-d{display:none}}
 @media(prefers-reduced-motion:reduce){.ambient-background *{animation:none!important}}
+
+/* Comet travel is driven by document scroll, never by a looping animation. */
+.scroll-comet{position:absolute;top:0;left:0;width:2px;height:100px;opacity:0;transform-origin:50% 100%;background:linear-gradient(to bottom,transparent,#ffb45420 35%,#ffb454aa 88%,#fff0d4);border-radius:50%;will-change:transform,opacity;pointer-events:none}
+.scroll-comet:after{content:"";position:absolute;bottom:-2px;left:-2px;width:6px;height:6px;border-radius:50%;background:#ffe2b8;box-shadow:0 0 10px #ffb454bb,0 0 22px #ffb45455}
+.comet-two{height:140px;width:1px}.comet-three{height:75px}
+@media(max-width:520px){.scroll-comet{height:66px}.comet-two{height:85px}.comet-three{display:none}.scroll-comet:after{width:4px;height:4px;left:-1px}}
+@media(prefers-reduced-motion:reduce){.scroll-comet{display:none}}
