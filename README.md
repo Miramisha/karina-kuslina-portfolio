@@ -12,8 +12,7 @@ Build the public output with `python3 scripts/build.py`. The script validates lo
 
 - Visual design and motion approved by the owner.
 - Responsive checks completed at 320px and 1440px.
-- Static output prepared for Sites hosting; initial deployment is owner-only.
-- Public access and an optional custom domain remain a separate stage.
+- Static output prepared for Sites hosting; the deployed site is public.
 
 See `docs/launch-readiness.ru.md` for checks and update instructions.
 
