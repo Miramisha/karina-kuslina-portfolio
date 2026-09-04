@@ -12,10 +12,11 @@ Build the public output with `python3 scripts/build.py`. The script validates lo
 
 - Visual design and motion approved by the owner.
 - Responsive checks completed at 320px and 1440px.
-- Static output prepared for Sites hosting; the deployed site is public.
+- Static output deployed publicly to Cloudflare Pages using Direct Upload.
+- Public URL: https://karina-kuslina.pages.dev . An optional custom domain remains a separate stage.
 
 See `docs/launch-readiness.ru.md` for checks and update instructions.
 
 ## Workflow
 
-Each stage requires the owner's approval. Completed stages are committed with English messages without AI attribution. GitHub remains the source history; publishing a new Sites version is a separate operation.
+Each stage requires the owner's approval. Completed stages are committed with English messages without AI attribution. GitHub remains the source history; publishing an updated build to Cloudflare Pages is a separate operation.
