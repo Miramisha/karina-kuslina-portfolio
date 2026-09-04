@@ -59,13 +59,14 @@
       entries.forEach(entry => {
         if (!entry.isIntersecting) {
           revealed.delete(entry.target);
-          activeReveals.get(entry.target)?.cancel();
-        } else if (entry.intersectionRatio >= 0.12 && !revealed.has(entry.target)) {
+        } else if (!revealed.has(entry.target)) {
           revealed.add(entry.target);
-          reveal(entry.target);
+          // Observe the stable container, animate only its contents.
+          // Their transforms must not retrigger the intersection observer.
+          [...entry.target.children].forEach(element => reveal(element));
         }
       });
-    }, {threshold: [0, 0.12], rootMargin: '0px 0px -40px 0px'});
+    }, {threshold: 0, rootMargin: '60px 0px 60px 0px'});
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
     const demoObserver = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
