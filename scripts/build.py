@@ -7,7 +7,7 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "src"
 OUTPUT = ROOT / "dist"
-FILES = ["index.html", "styles.css", "js/app.js", "js/content-motion.js", "js/portrait.js", "js/comets.js", "assets/karina-portrait.png", "assets/logos/kk-03.svg"]
+FILES = ["index.html", "styles.css", "js/app.js", "js/caption.js", "js/content-motion.js", "js/portrait.js", "js/comets.js", "assets/karina-portrait.png", "assets/logos/kk-03.svg"]
 
 class Page(HTMLParser):
     def __init__(self):
