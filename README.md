@@ -2,16 +2,21 @@
 
 A personal portfolio focused on fullstack development, professional projects, and carefully designed motion.
 
-## Project workflow
+## Architecture
 
-Each stage requires the owner's approval before work begins. Completed stages are committed with English messages without AI attribution.
+Plain HTML, CSS and JavaScript; no framework, database or runtime dependencies. The approved site source lives in `design/prototype/`.
 
-1. Content and visual concept — prepared in `docs/concept.ru.md`.
-2. Design — browser prototype prepared for review in `design/prototype/`. The owner approved continuing outside Figma after its tool quota was reached. See `docs/browser-design.ru.md`.
-3. Responsive implementation and animation — pending approval.
-4. Hosting and domain setup — pending approval.
-5. Production checks — pending approval.
+Build the public output with `python3 scripts/build.py`. The script validates local resources and section links and copies only the production files to `dist/`. Design comparisons and planning documents stay out of the deployment.
 
-The repository contains planning documents, design tokens, a Figma progress ledger, and a complete local browser design prototype. Production implementation and public deployment have not started.
+## Status
 
-Figma: https://www.figma.com/design/HoEsiN1E9O3dgsCdKOIbZS
+- Visual design and motion approved by the owner.
+- Responsive checks completed at 320px and 1440px.
+- Static output prepared for Sites hosting; initial deployment is owner-only.
+- Public access and an optional custom domain remain a separate stage.
+
+See `docs/launch-readiness.ru.md` for checks and update instructions.
+
+## Workflow
+
+Each stage requires the owner's approval. Completed stages are committed with English messages without AI attribution. GitHub remains the source history; publishing a new Sites version is a separate operation.
