@@ -5,9 +5,9 @@ from urllib.parse import urlsplit
 import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "design/prototype"
+SOURCE = ROOT / "src"
 OUTPUT = ROOT / "dist"
-FILES = ["index.html", "styles.css", "prototype.js", "assets/karina-portrait.png", "assets/logos/kk-03.svg"]
+FILES = ["index.html", "styles.css", "js/app.js", "js/content-motion.js", "js/portrait.js", "js/comets.js", "assets/karina-portrait.png", "assets/logos/kk-03.svg"]
 
 class Page(HTMLParser):
     def __init__(self):
@@ -16,7 +16,8 @@ class Page(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if "id" in attrs:
-            assert attrs["id"] not in self.ids, "Duplicate HTML id"
+            if attrs["id"] in self.ids:
+                raise ValueError("Duplicate HTML id")
             self.ids.add(attrs["id"])
         for key in ("src", "href"):
             if key in attrs:
@@ -29,12 +30,17 @@ for link in page.links:
     if url.scheme or url.netloc:
         continue
     if url.path:
-        assert url.path in FILES, f"Missing public asset: {url.path}"
+        if url.path not in FILES:
+            raise ValueError(f"Missing public asset: {url.path}")
     if url.fragment:
-        assert url.fragment in page.ids, f"Broken section link: {link}"
+        if url.fragment not in page.ids:
+            raise ValueError(f"Broken section link: {link}")
 for file in FILES:
-    assert (SOURCE / file).is_file(), f"Missing file: {file}"
-OUTPUT.mkdir(exist_ok=True)
+    if not (SOURCE / file).is_file():
+        raise ValueError(f"Missing file: {file}")
+if OUTPUT.exists():
+    shutil.rmtree(OUTPUT)
+OUTPUT.mkdir()
 for file in FILES:
     dest = OUTPUT / file
     dest.parent.mkdir(parents=True, exist_ok=True)

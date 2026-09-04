@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="design/prototype/assets/logos/kk-03.svg" width="88" alt="Монограмма КК">
+  <img src="src/assets/logos/kk-03.svg" width="88" alt="Монограмма КК">
 </p>
 
 <h1 align="center">Карина Куслина · Portfolio</h1>
@@ -46,7 +46,7 @@ Python используется только для подготовки фай�
 ```sh
 git clone https://github.com/Miramisha/karina-kuslina-portfolio.git
 cd karina-kuslina-portfolio
-python3 -m http.server 8765 --bind 127.0.0.1 --directory design/prototype
+python3 -m http.server 8765 --bind 127.0.0.1 --directory src
 ```
 
 Откройте [localhost:8765](http://127.0.0.1:8765/). Установка npm-пакетов не требуется.
@@ -64,15 +64,17 @@ python3 scripts/build.py
 ## Структура
 
 ```text
-design/
-  prototype/
-    index.html          # Содержимое и структура страницы
-    styles.css          # Оформление и адаптивная вёрстка
-    prototype.js        # Интерактивность и анимации
-    assets/             # Портрет и SVG-логотипы
-    logo-options.html   # Сравнение вариантов монограммы
-  tokens.json           # Дизайн-токены
-docs/                   # Заметки о дизайне и публикации
+src/
+  index.html            # Содержимое страницы
+  styles.css            # Стили и адаптивная вёрстка
+  js/
+    app.js              # Инициализация
+    content-motion.js   # Появление разделов и схема запроса
+    portrait.js         # Портрет и управление движением
+    comets.js           # Кометы на Canvas
+  assets/               # Портрет и выбранный логотип
+design/                 # Архив дизайна и варианты монограммы
+docs/                   # Документация
 scripts/build.py        # Подготовка статической сборки
 ```
 
