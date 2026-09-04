@@ -63,3 +63,10 @@ body.motion-paused .ambient-background *,body.motion-hidden .ambient-background 
 .portrait-frame figcaption{gap:12px;line-height:1.5}
 @keyframes orbit-travel{to{offset-distance:100%}}
 @media(prefers-reduced-motion:reduce){.portrait-orbit:before{animation:none!important}}
+
+/* Leave a visible ring of space between the portrait and its orbits. */
+.portrait-scene{padding:48px 54px 82px}
+.portrait-orbit{inset:10px 8px 34px;border-color:#ffb45442}
+.orbit-two{inset:28px 20px 12px;border-color:#ffb45426}
+@media(max-width:1100px){.portrait-scene{padding:44px 46px 78px}}
+@media(max-width:520px){.portrait-scene{padding:40px 38px 72px}}
