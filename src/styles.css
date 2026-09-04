@@ -1590,7 +1590,7 @@ h2 {
 }
 .token-js {
   right:18px;
-  bottom:24%;
+  top:48%;
   animation-delay:-2s;
 }
 .token-code {
@@ -1735,7 +1735,7 @@ body.motion-paused .portrait-frame {
   }
   .token-js {
     right:14px;
-    bottom:26%;
+    top:46%;
   }
   .token-code {
     font-size:18px;
