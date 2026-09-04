@@ -54,3 +54,12 @@ body.motion-paused .ambient-background *,body.motion-hidden .ambient-background 
 /* Soft comet trails are rendered only when scroll position changes. */
 .comet-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.comet-canvas{display:none}}
+
+/* Keep the orbit contours inside the scene; move only their satellites. */
+.portrait-orbit{inset:12px 8px 46px;animation:none}
+.orbit-two{inset:46px 14px 22px;transform:none;animation:none}
+.portrait-orbit:before{top:0;left:0;offset-path:ellipse(50% 50% at 50% 50%);animation:orbit-travel 28s linear infinite}
+.orbit-two:before{animation-direction:reverse;animation-duration:36s}
+.portrait-frame figcaption{gap:12px;line-height:1.5}
+@keyframes orbit-travel{to{offset-distance:100%}}
+@media(prefers-reduced-motion:reduce){.portrait-orbit:before{animation:none!important}}
